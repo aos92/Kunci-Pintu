@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "author": "Asep Oman Somantri",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 62.97, "left": 2.1, "attrs": {} },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -609.8,
+      "left": -5.48,
+      "rotate": -90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -292.33,
+      "left": -58.79,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -147.54,
+      "left": 50.05,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -147.66,
+      "left": 98.18,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -148.77,
+      "left": 145.09,
+      "attrs": { "color": "limegreen" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led4",
+      "top": -150.13,
+      "left": 195.69,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -86.01,
+      "left": -32.88,
+      "attrs": { "color": "magenta" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -68.98,
+      "left": 43.91,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -70.88,
+      "left": 93.49,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": -71.53,
+      "left": 139.7,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r5",
+      "top": -72.66,
+      "left": 190.72,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-ds1307",
+      "id": "rtc1",
+      "top": -400.56,
+      "left": -174.85,
+      "rotate": -90,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "led4:A", "r5:1", "limegreen", [ "v0" ] ],
+    [ "led3:A", "r4:1", "orange", [ "v0" ] ],
+    [ "led2:A", "r3:1", "blue", [ "v0" ] ],
+    [ "led1:A", "r2:1", "yellow", [ "v0" ] ],
+    [ "led1:C", "led2:C", "black", [ "v8.52", "h48.66", "v1.69" ] ],
+    [ "led2:C", "led3:C", "black", [ "v7.75", "h0.74", "v0.53", "h45.86" ] ],
+    [ "led3:C", "led4:C", "black", [ "v8.5", "h50.88", "v-0.02" ] ],
+    [ "r1:1", "led1:C", "black", [ "h0.88", "v-10.73", "h25.61" ] ],
+    [ "r1:2", "btn1:1.r", "violet", [ "h0" ] ],
+    [ "rtc1:SCL", "lcd1:SCL", "blue", [ "v85.78", "h-2.14" ] ],
+    [ "lcd1:SDA", "rtc1:SDA", "green", [ "h-76.25", "v3.11" ] ],
+    [ "lcd1:VCC", "rtc1:5V", "red", [ "h-83.41", "v-1.08" ] ],
+    [ "lcd1:GND", "rtc1:GND", "black", [ "h-90.93", "v0.81" ] ],
+    [ "lcd1:SCL", "uno:A5", "blue", [ "h-11.8", "v502.48", "h325.4", "v-2.17" ] ],
+    [ "lcd1:SDA", "uno:A4", "green", [ "h-16.59", "v515.55", "h320.24", "v0.02" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-21.51", "v530.38", "h240.07", "v0.63" ] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [ "h-26.77", "v545.25", "h252.82", "v-1.19" ] ],
+    [ "btn1:1.r", "led1:C", "black", [ "v-25.54", "h30.56", "v-0.78" ] ],
+    [ "uno:12", "btn1:2.r", "violet", [ "v-15.14", "h-100.1", "v-2.49" ] ],
+    [ "led1:C", "lcd1:GND", "black", [ "v7.89", "h-146.33", "v-161.56", "h2.15" ] ],
+    [ "r2:2", "uno:11", "yellow", [ "h4.89", "v81.87", "h65.92" ] ],
+    [ "uno:10", "r3:2", "blue", [ "v-24.47", "h-27.48", "v-1.31" ] ],
+    [ "uno:9", "r4:2", "orange", [ "v-23.13", "h0.56", "v-1.26" ] ],
+    [ "uno:8", "r5:2", "green", [ "v-91.63", "h45.04", "v-4.25" ] ],
+    [ "keypad1:R2", "uno:7", "blue", [ "h19.28", "v401.59", "h-122.21", "v2.14" ] ],
+    [ "keypad1:R3", "uno:6", "green", [ "h26.77", "v418.83", "h-121.46", "v0.32" ] ],
+    [ "keypad1:R4", "uno:4", "violet", [ "h33.76", "v435.11", "h-108.76", "v1.9" ] ],
+    [ "keypad1:C1", "uno:3", "cyan", [ "h39.01", "v456.79", "h-102.59", "v-2.89" ] ],
+    [ "uno:1", "keypad1:C2", "gray", [ "v-47.51", "h86.92", "v-471.17", "h-0.83" ] ],
+    [ "keypad1:C3", "uno:5", "magenta", [ "h50.66", "v490.35", "h-136.28", "v1.08" ] ],
+    [ "uno:2", "keypad1:R1", "orange", [ "v-62.01", "h60.51", "v-411.21", "h4" ] ]
+  ]
+}
